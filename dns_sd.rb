@@ -8,8 +8,10 @@ module DnsSd
 		#
 	  # @param [String] the response of a dns-sd lookup request
 	  # @return [LookupResponse] the object parsed from a string
-		def self.parse(string)
-			new(Date.new(2001,2,3))
+		def self.parse(raw)
+			match = /^\d{2}:\d{2}:\d{2}.\d{3}/.match(raw)
+			timestamp = match[0]
+			new(timestamp)
 		end
 		# IO.popen('dns-sd -L mini _plexmediasvr') do |f|
 	# while (a = f.gets) do
