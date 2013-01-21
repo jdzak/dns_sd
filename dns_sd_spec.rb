@@ -11,4 +11,12 @@ describe DnsSd::LookupResponse, '#parse' do
 	it "parses time" do
 		r.timestamp.should == '13:07:00.708'
 	end
+
+	it "parses time" do
+		r.service.should == 'mini._plexmediasvr._tcp.local.'
+	end
+
+	it "parses time" do
+		r.host.should == 'mini.local.:32400'
+	end
 end
